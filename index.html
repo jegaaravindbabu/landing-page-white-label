@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indiapixels White Label — India's First White Label AI Studio</title>
+<meta name="description" content="Launch your own AI video, image & audio generation platform under your brand. 200+ AI models, your logo, your domain, your prices — keep 100% of the profits.">
+<meta property="og:title" content="Your Brand. Our AI Engine. — Indiapixels White Label AI Studio">
+<meta property="og:description" content="India's first white label AI creative studio. Launch your own AI SaaS in days.">
+<meta property="og:image" content="poster-explainer.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0F1A; --ink-2:#111827; --ink-3:#1A2338; --line:#26304A;
+    --text:#E9ECF5; --dim:#98A2BF;
+    --violet:#8B5CF6; --magenta:#EC4899; --orange:#FF8A00;
+    --grad:linear-gradient(92deg,var(--violet),var(--magenta) 55%,var(--orange));
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--ink); color:var(--text); font-family:'Inter',sans-serif; line-height:1.55; overflow-x:hidden;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; line-height:1.12;}
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--orange);}
+  .grad-text{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  section{padding:88px 0;}
+  .sec-head{max-width:640px; margin-bottom:48px;}
+  .sec-head h2{font-size:clamp(28px,4vw,42px); margin:12px 0 14px;}
+  .sec-head p{color:var(--dim); font-size:16.5px;}
+
+  /* Nav */
+  nav{position:sticky; top:0; z-index:50; background:rgba(11,15,26,.82); backdrop-filter:blur(12px); border-bottom:1px solid var(--line);}
+  .nav-in{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; text-decoration:none; display:flex; align-items:center; gap:8px;}
+  .logo .spark{color:var(--magenta);}
+  .nav-links{display:flex; gap:26px; font-size:14px;}
+  .nav-links a{text-decoration:none; color:var(--dim); transition:color .2s;}
+  .nav-links a:hover{color:var(--text);}
+  .btn{display:inline-block; background:var(--grad); color:#fff; font-weight:600; font-size:15px; padding:13px 26px; border-radius:10px; text-decoration:none; border:none; cursor:pointer; transition:transform .15s, box-shadow .15s;}
+  .btn:hover{transform:translateY(-2px); box-shadow:0 8px 28px rgba(236,72,153,.35);}
+  .btn.small{padding:9px 18px; font-size:13.5px;}
+  .btn.ghost{background:transparent; border:1px solid var(--line); color:var(--text);}
+  .btn.ghost:hover{box-shadow:none; border-color:var(--magenta);}
+
+  /* Hero */
+  .hero{padding:84px 0 70px; position:relative;}
+  .hero::before{content:""; position:absolute; top:-200px; left:50%; transform:translateX(-50%); width:900px; height:600px; background:radial-gradient(closest-side, rgba(139,92,246,.22), transparent); pointer-events:none;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; position:relative;}
+  .hero h1{font-size:clamp(38px,5.4vw,60px); margin:18px 0 8px;}
+  .brand-swap{display:inline-block; min-width:5.2ch; border-bottom:3px solid var(--magenta);}
+  .hero .sub{color:var(--dim); font-size:18px; max-width:480px; margin:18px 0 30px;}
+  .hero .sub strong{color:var(--text);}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
+  .hero-note{font-size:13px; color:var(--dim); margin-top:14px;}
+  .video-frame{position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--line); background:var(--ink-2); box-shadow:0 24px 60px rgba(0,0,0,.5);}
+  .video-frame::after{content:""; position:absolute; inset:0; border-radius:16px; pointer-events:none; border:1px solid rgba(255,255,255,.06);}
+  .ratio-169{aspect-ratio:16/9;}
+  .ratio-916{aspect-ratio:9/16;}
+  .video-frame iframe, .video-frame video{position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover; background:#000;}
+
+  /* Model strip */
+  .models{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:22px 0; background:var(--ink-2);}
+  .models .wrap{display:flex; align-items:center; gap:30px; flex-wrap:wrap; justify-content:center;}
+  .models span{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--dim); letter-spacing:.04em;}
+  .models .lead{color:var(--text); font-weight:600;}
+
+  /* Steps */
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .step{background:var(--ink-2); border:1px solid var(--line); border-radius:14px; padding:28px 24px; position:relative;}
+  .step .n{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--magenta); margin-bottom:14px; display:block;}
+  .step h3{font-size:19px; margin-bottom:8px;}
+  .step p{color:var(--dim); font-size:14.5px;}
+
+  /* Studios */
+  .studio-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .studio{background:var(--ink-2); border:1px solid var(--line); border-radius:14px; padding:26px 24px; transition:border-color .2s, transform .2s;}
+  .studio:hover{border-color:var(--violet); transform:translateY(-3px);}
+  .studio .ic{font-size:26px; margin-bottom:14px;}
+  .studio h3{font-size:17px; margin-bottom:7px;}
+  .studio p{color:var(--dim); font-size:14px;}
+
+  /* Videos section */
+  .videos-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start;}
+  .vid-label{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--dim); margin-top:10px;}
+
+  /* Earnings */
+  .earn{background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .earn-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .earn-big{font-family:'Space Grotesk',sans-serif; font-size:clamp(40px,5vw,58px); font-weight:700;}
+  .earn-sub{color:var(--dim); margin:14px 0 28px; font-size:16.5px;}
+  .calc-card{background:var(--ink); border:1px solid var(--line); border-radius:16px; padding:28px;}
+  .calc-row{margin-bottom:20px;}
+  .calc-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;}
+  .calc-top label{font-size:14px; font-weight:600;}
+  .calc-top span{font-size:14px; color:var(--orange);}
+  input[type=range]{width:100%; -webkit-appearance:none; appearance:none; height:6px; border-radius:3px; background:var(--ink-3); outline:none; cursor:pointer;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:var(--grad); border:2px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,.4);}
+  input[type=range]::-moz-range-thumb{width:18px; height:18px; border-radius:50%; background:var(--magenta); border:2px solid #fff;}
+  input[type=range]:focus-visible{outline:2px solid var(--violet); outline-offset:3px;}
+  .calc-out{border-top:1px solid var(--line); margin-top:6px; padding-top:16px;}
+  .calc-line{display:flex; justify-content:space-between; align-items:baseline; padding:7px 0; font-size:14.5px;}
+  .calc-line span:last-child{font-size:19px; font-weight:700;}
+  .calc-line.big span:last-child{font-size:26px;}
+  .earn-points{list-style:none; margin-top:26px;}
+  .earn-points li{padding-left:28px; position:relative; margin-bottom:12px; color:var(--dim); font-size:15px;}
+  .earn-points li::before{content:"✓"; position:absolute; left:0; color:var(--orange); font-weight:700;}
+  .earn-points li strong{color:var(--text);}
+
+  /* Gallery */
+  .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .gallery figure{border-radius:14px; overflow:hidden; border:1px solid var(--line); transition:transform .2s;}
+  .gallery figure:hover{transform:scale(1.02);}
+
+  /* Audience */
+  .aud-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .aud{border:1px solid var(--line); border-radius:14px; padding:24px 22px; background:var(--ink-2);}
+  .aud h3{font-size:16px; margin-bottom:6px;}
+  .aud p{font-size:13.5px; color:var(--dim);}
+
+  /* FAQ */
+  details{border:1px solid var(--line); border-radius:12px; background:var(--ink-2); margin-bottom:12px;}
+  summary{cursor:pointer; padding:18px 22px; font-weight:600; font-size:15.5px; list-style:none; display:flex; justify-content:space-between; align-items:center;}
+  summary::after{content:"+"; font-family:'JetBrains Mono',monospace; color:var(--magenta); font-size:18px;}
+  details[open] summary::after{content:"–";}
+  details p{padding:0 22px 18px; color:var(--dim); font-size:14.5px;}
+
+  /* Form */
+  .form-sec{position:relative;}
+  .form-sec::before{content:""; position:absolute; bottom:-100px; left:50%; transform:translateX(-50%); width:800px; height:400px; background:radial-gradient(closest-side, rgba(255,138,0,.13), transparent); pointer-events:none;}
+  .form-card{max-width:640px; margin:0 auto; background:var(--ink-2); border:1px solid var(--line); border-radius:18px; padding:40px; position:relative;}
+  .form-card h2{font-size:clamp(26px,3.5vw,34px); margin-bottom:10px;}
+  .form-card>p{color:var(--dim); margin-bottom:28px; font-size:15.5px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block; font-size:13.5px; font-weight:600; margin-bottom:7px;}
+  .field input, .field select, .field textarea{
+    width:100%; background:var(--ink-3); border:1px solid var(--line); color:var(--text);
+    font-family:'Inter',sans-serif; font-size:15px; padding:13px 14px; border-radius:10px;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--violet); outline-offset:1px; border-color:transparent;}
+  .form-fine{font-size:12.5px; color:var(--dim); margin-top:14px; text-align:center;}
+
+  /* WhatsApp */
+  .btn.wa{background:#25D366; color:#062b16; display:inline-flex; align-items:center; gap:8px;}
+  .btn.wa:hover{box-shadow:0 8px 28px rgba(37,211,102,.35);}
+  .wa-float{position:fixed; right:20px; bottom:20px; z-index:60; width:58px; height:58px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,.45); transition:transform .15s;}
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float svg{width:32px; height:32px; fill:#fff;}
+  .wa-inline{color:#25D366; font-weight:600; text-decoration:none;}
+  .wa-inline:hover{text-decoration:underline;}
+
+  footer{border-top:1px solid var(--line); padding:36px 0; font-size:13.5px; color:var(--dim);}
+  .foot-in{display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;}
+  .foot-in a{color:var(--dim);}
+
+  @media (max-width:900px){
+    section{padding:64px 0;}
+    .hero-grid, .earn-grid{grid-template-columns:1fr;}
+    .steps, .studio-grid, .gallery{grid-template-columns:1fr 1fr;}
+    .aud-grid{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+  }
+  @media (max-width:560px){
+    .steps, .studio-grid, .gallery, .aud-grid, .videos-grid{grid-template-columns:1fr;}
+    .form-card{padding:28px 20px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important; animation:none !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="#"><span class="spark">✦</span>Indiapixels <span class="mono" style="font-size:11px;color:var(--dim);font-weight:400;">WHITE LABEL</span></a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#studios">What's inside</a>
+      <a href="#videos">Watch demos</a>
+      <a href="#earnings">Earnings</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn small" href="#apply">Get your studio</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">// India's first white label AI studio</span>
+      <h1><span class="brand-swap grad-text" id="brandSwap">Your Brand.</span><br>Our AI Engine.</h1>
+      <p class="sub">Launch your own AI video, image &amp; audio generation platform — <strong>fully rebranded with your logo, your domain, your prices.</strong> Sell subscriptions and keep 100% of the profits.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="#apply">Start your AI SaaS empire →</a>
+        <a class="btn wa" href="https://wa.me/917092576754?text=Hi%2C%20I%27m%20interested%20in%20the%20White%20Label%20AI%20Studio" target="_blank" rel="noopener">💬 WhatsApp us</a>
+      </div>
+      <p class="hero-note">No coding required · Launch in days · Or call/WhatsApp <a class="wa-inline" href="https://wa.me/917092576754">+91 70925 76754</a></p>
+    </div>
+    <div>
+      <div class="video-frame ratio-169">
+        <video controls preload="none" poster="poster-explainer.jpg" playsinline>
+          <source src="explainer-web.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="vid-label">▶ Full walkthrough — India's first white label AI creative studio</p>
+    </div>
+  </div>
+</header>
+
+<div class="models">
+  <div class="wrap">
+    <span class="lead">Your platform ships with</span>
+    <span>Flux</span><span>Midjourney</span><span>Kling</span><span>Veo</span><span>Seedance</span><span>Runway</span><span>Stable Diffusion</span><span>Suno</span><span>ElevenLabs</span><span>+190 more</span>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">// How it works</span>
+      <h2>From zero to your own AI platform in three steps</h2>
+      <p>You don't build anything. You don't maintain servers or model integrations. You brand it, price it, and sell it.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n">STEP 01</span>
+        <h3>We rebrand the platform for you</h3>
+        <p>Your logo, your colors, your domain. Your customers see only your brand — Indiapixels stays invisible.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEP 02</span>
+        <h3>You set your own prices</h3>
+        <p>Create your own subscription plans in ₹ — charge whatever your market can pay. Payments go directly to you.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEP 03</span>
+        <h3>You keep 100% of the revenue</h3>
+        <p>We run the AI engine, GPUs, updates and uptime behind the scenes. Every rupee your customers pay is yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="studios" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">// What's inside</span>
+      <h2>Six studios your customers will pay for</h2>
+      <p>The same engine behind indianpixels.com — delivered under your name.</p>
+    </div>
+    <div class="studio-grid">
+      <div class="studio"><div class="ic">🎨</div><h3>Image Studio</h3><p>Photorealistic renders, product shots, illustrations — 100+ image models from a single prompt box.</p></div>
+      <div class="studio"><div class="ic">🎬</div><h3>Video Studio</h3><p>Text-to-video and image-to-video with Kling, Veo, Seedance, Runway. Cinematic output in minutes.</p></div>
+      <div class="studio"><div class="ic">🎵</div><h3>Audio Studio</h3><p>Music, sound effects and voiceovers with Suno, ElevenLabs and other leading audio models.</p></div>
+      <div class="studio"><div class="ic">✂️</div><h3>AI Clipping</h3><p>Turn long videos into ready-to-post shorts and reels, automatically clipped and captioned.</p></div>
+      <div class="studio"><div class="ic">🗣️</div><h3>Lip Sync</h3><p>Dub any video into new languages or create talking avatar content with perfect lip sync.</p></div>
+      <div class="studio"><div class="ic">🎥</div><h3>Cinema Studio</h3><p>End-to-end production — storyboard, generate scenes, add voiceover, edit and export.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="videos" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">// See it in action</span>
+      <h2>Watch the platform work</h2>
+      <p>Quick demos — see exactly what your customers will experience under your brand.</p>
+    </div>
+    <div class="videos-grid">
+      <div>
+        <div class="video-frame ratio-169">
+          <video controls preload="none" poster="poster-reels-1.jpg" playsinline>
+            <source src="reels-1-web.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="vid-label">▶ 60-second overview</p>
+      </div>
+      <div>
+        <div class="video-frame ratio-169">
+          <video controls preload="none" poster="poster-reels-2.jpg" playsinline>
+            <source src="reels-2-web.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="vid-label">▶ Inside the studio</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="earn" id="earnings">
+  <div class="wrap earn-grid">
+    <div>
+      <span class="eyebrow">// The business case</span>
+      <h2 class="earn-big">Build once.<br><span class="grad-text">Earn every month.</span></h2>
+      <p class="earn-sub">SaaS subscriptions are recurring — your customers pay you every month for as long as they create. Here's what a realistic customer base looks like at typical plan prices.</p>
+      <ul class="earn-points">
+        <li><strong>Recurring revenue</strong> — subscription income compounds as your customer base grows</li>
+        <li><strong>You set the prices</strong> — the plans shown are examples; charge what your market supports</li>
+        <li><strong>Zero infrastructure cost headaches</strong> — GPUs, models and updates are handled for you</li>
+        <li><strong>Multiple income streams</strong> — sell subscriptions, or use it in-house for client work</li>
+      </ul>
+      <div style="margin-top:28px;">
+        <a class="btn wa" href="https://wa.me/917092576754?text=Hi%2C%20I%20want%20to%20know%20the%20white%20label%20pricing" target="_blank" rel="noopener">💬 Get pricing on WhatsApp</a>
+      </div>
+    </div>
+    <div>
+      <div class="calc-card">
+        <h3 style="font-size:17px; margin-bottom:4px;">Earnings calculator</h3>
+        <p style="font-size:13px; color:var(--dim); margin-bottom:22px;">Drag the sliders — how many customers can you get on each plan?</p>
+        <div class="calc-row">
+          <div class="calc-top"><label for="cCreator">Creator — ₹999/mo</label><span class="mono" id="vCreator">400</span></div>
+          <input type="range" id="cCreator" min="0" max="2000" step="10" value="400">
+        </div>
+        <div class="calc-row">
+          <div class="calc-top"><label for="cPro">Pro — ₹2,499/mo</label><span class="mono" id="vPro">200</span></div>
+          <input type="range" id="cPro" min="0" max="1000" step="5" value="200">
+        </div>
+        <div class="calc-row">
+          <div class="calc-top"><label for="cEnt">Enterprise — ₹5,999/mo</label><span class="mono" id="vEnt">35</span></div>
+          <input type="range" id="cEnt" min="0" max="300" step="5" value="35">
+        </div>
+        <div class="calc-out">
+          <div class="calc-line"><span>Monthly recurring revenue</span><span class="mono grad-text" id="outMonth">₹11,09,365</span></div>
+          <div class="calc-line big"><span>Yearly revenue</span><span class="mono grad-text" id="outYear">₹1.33 Cr</span></div>
+        </div>
+      </div>
+      <p class="form-fine" style="text-align:left; margin-top:12px;">Illustrative — based on example plan prices at indianpixels.com. You set your own prices; results depend on your marketing and customer base.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">// Ready-made marketing</span>
+      <h2>Launch with creatives, not from scratch</h2>
+      <p>Get proven ad creatives and campaign templates alongside your platform — start selling from day one.</p>
+    </div>
+    <div class="gallery">
+      <figure><img src="fb ads 5.jpeg" alt="Indiapixels white label AI studio ad creative — Your Brand, Our AI Engine" loading="lazy"></figure>
+      <figure><img src="fb ads 6.jpeg" alt="White label AI studio ad creative — earnings potential" loading="lazy"></figure>
+      <figure><img src="fb ads 7.jpeg" alt="White label AI studio ad creative — platform features" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">// Who this is for</span>
+      <h2>Built for people who want to sell AI, not build it</h2>
+    </div>
+    <div class="aud-grid">
+      <div class="aud"><h3>Agencies</h3><p>Add an AI creative platform to your service stack — or use it in-house for client deliverables.</p></div>
+      <div class="aud"><h3>Creators &amp; YouTubers</h3><p>Turn your audience into subscribers of your own branded AI tool.</p></div>
+      <div class="aud"><h3>Entrepreneurs</h3><p>Enter the AI SaaS market without a tech team, funding or years of development.</p></div>
+      <div class="aud"><h3>Resellers &amp; IT firms</h3><p>Offer a high-demand product to your existing business clients with recurring margins.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0;">
+  <div class="wrap" style="max-width:760px;">
+    <div class="sec-head">
+      <span class="eyebrow">// FAQ</span>
+      <h2>Common questions</h2>
+    </div>
+    <details>
+      <summary>Do I need to know coding?</summary>
+      <p>No. We deliver the platform fully set up on your domain with your branding. You focus on marketing and customers.</p>
+    </details>
+    <details>
+      <summary>Will my customers know it's powered by Indiapixels?</summary>
+      <p>No. The platform is 100% rebrandable — your logo, your domain, your brand name. Indiapixels stays completely invisible to your users.</p>
+    </details>
+    <details>
+      <summary>Who handles the AI models, servers and updates?</summary>
+      <p>We do. GPU infrastructure, model integrations, new features and uptime are managed by our team. You get regular updates automatically.</p>
+    </details>
+    <details>
+      <summary>How do I collect payments from my customers?</summary>
+      <p>Payments from your subscribers go directly to you through your own payment gateway (e.g. Razorpay). You keep 100% of what you charge.</p>
+    </details>
+    <details>
+      <summary>How fast can I launch?</summary>
+      <p>Most partners go live within days of onboarding — branding, domain setup and plan configuration included.</p>
+    </details>
+    <p style="text-align:center; margin-top:28px; color:var(--dim); font-size:15px;">Still have questions? Message us on WhatsApp — <a class="wa-inline" href="https://wa.me/917092576754?text=Hi%2C%20I%20have%20a%20question%20about%20the%20White%20Label%20AI%20Studio" target="_blank" rel="noopener">+91 70925 76754</a> or <a class="wa-inline" href="https://wa.me/917904763779?text=Hi%2C%20I%20have%20a%20question%20about%20the%20White%20Label%20AI%20Studio" target="_blank" rel="noopener">+91 79047 63779</a></p>
+  </div>
+</section>
+
+<section class="form-sec" id="apply">
+  <div class="wrap">
+    <div class="form-card">
+      <span class="eyebrow">// Get started</span>
+      <h2 style="margin-top:10px;">Get your own AI studio</h2>
+      <p>Fill this in and we'll reach out with a personal demo, white label pricing and a launch plan for your brand.</p>
+      <form action="https://formsubmit.co/aravindbabu6969@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New White Label AI Studio lead">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" type="text" name="name" required placeholder="Full name">
+        </div>
+        <div class="field">
+          <label for="f-phone">WhatsApp number</label>
+          <input id="f-phone" type="tel" name="phone" required placeholder="+91 ...">
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" type="email" name="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="f-type">I am a…</label>
+          <select id="f-type" name="profile">
+            <option>Agency owner</option>
+            <option>Creator / YouTuber</option>
+            <option>Entrepreneur</option>
+            <option>Reseller / IT company</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-msg">Anything you want to ask? (optional)</label>
+          <textarea id="f-msg" name="message" rows="3" placeholder="Your questions or goals"></textarea>
+        </div>
+        <button class="btn" type="submit" style="width:100%;">Request my demo &amp; pricing →</button>
+      </form>
+      <p class="form-fine">We reply within 24 hours. Your details are never shared with anyone else.<br>Prefer chat? WhatsApp us directly at <a class="wa-inline" href="https://wa.me/917092576754?text=Hi%2C%20I%27m%20interested%20in%20the%20White%20Label%20AI%20Studio" target="_blank" rel="noopener">+91 70925 76754</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span><span style="color:var(--magenta);">✦</span> <strong style="color:var(--text);">Indiapixels</strong> White Label — India's first white label AI studio</span>
+    <span><a class="wa-inline" href="https://wa.me/917092576754">WhatsApp: +91 70925 76754</a> · <a class="wa-inline" href="https://wa.me/917904763779">+91 79047 63779</a> · <a href="https://www.indianpixels.com" target="_blank" rel="noopener">indianpixels.com</a> · © 2026 Indian Pixels. All rights reserved.</span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/917092576754?text=Hi%2C%20I%27m%20interested%20in%20the%20White%20Label%20AI%20Studio" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.5c-1.2 0-2.4-.3-3.5-.8l-.6-.3-4.9.9 1-4.7-.3-.6c-.9-1.5-1.4-3.2-1.4-5 0-5.4 4.4-9.7 9.7-9.7s9.7 4.4 9.7 9.7-4.3 10.5-9.7 10.5zm5.3-7.8c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1c-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.5-1.7-1.6-2s0-.4.1-.6c.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  // Earnings calculator
+  (function(){
+    var ids = {cCreator:999, cPro:2499, cEnt:5999};
+    var els = {};
+    function fmtINR(n){ return '₹' + n.toLocaleString('en-IN'); }
+    function fmtYear(n){
+      if(n >= 1e7) return '₹' + (n/1e7).toFixed(2).replace(/\.?0+$/,'') + ' Cr';
+      if(n >= 1e5) return '₹' + (n/1e5).toFixed(1).replace(/\.?0+$/,'') + ' L';
+      return fmtINR(n);
+    }
+    function update(){
+      var m = 0;
+      for(var id in ids){
+        var v = parseInt(els[id].value, 10) || 0;
+        document.getElementById('v' + id.slice(1)).textContent = v;
+        m += v * ids[id];
+      }
+      document.getElementById('outMonth').textContent = fmtINR(m);
+      document.getElementById('outYear').textContent = fmtYear(m * 12);
+    }
+    for(var id in ids){
+      els[id] = document.getElementById(id);
+      if(!els[id]) return;
+      els[id].addEventListener('input', update);
+    }
+    update();
+  })();
+
+  // Rotating brand names — shows rebrandability
+  (function(){
+    var el = document.getElementById('brandSwap');
+    if(!el) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var names = ['Your Brand.','PixelWave AI.','StudioNova.','CreateKart.','DesiGen AI.','Your Brand.'];
+    var i = 0;
+    setInterval(function(){
+      i = (i + 1) % names.length;
+      el.style.opacity = 0;
+      setTimeout(function(){ el.textContent = names[i]; el.style.opacity = 1; }, 220);
+    }, 2600);
+    el.style.transition = 'opacity .22s ease';
+  })();
+</script>
+
+</body>
+</html>
